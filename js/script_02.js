@@ -68,6 +68,7 @@ for (let i = 0; i < 2; i++) {
     }
 }
 
+console.log(personalMovieDB);
 
 /* Способ № 3 */
 /* пока условие выполняется */
@@ -88,6 +89,8 @@ while (i <= numberOfFilms) {
 
     i++;
 }
+
+console.log(personalMovieDB);
 
 /* Способ № 4 */
 
