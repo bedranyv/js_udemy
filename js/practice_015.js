@@ -54,7 +54,7 @@ if (personalMovieDB.count < 10) {
 
 /* Способ № 2 */
 
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < numberOfFilms; i++) {
     const a = prompt('Один из последних просмотренных фильмов?', ''),
     b = prompt('На сколько оцените его?', '');
 
@@ -94,7 +94,7 @@ console.log(personalMovieDB);
 
 /* Способ № 4 */
 
-let i = 1;
+i = 1;
 do {
     let film;
 
