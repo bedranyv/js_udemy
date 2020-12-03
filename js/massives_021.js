@@ -35,10 +35,10 @@ arr.forEach(function(item, i, arr) {
 });
 
 // split - из строки сформировать массив
-// внутри split() пишем отделяются элементы в строке
+// внутри split() пишем чем отделяются элементы в строке
 
-const str = prompt('', '');
-const products = str.split(', ');
+const str = 'Чайник, чашка, чай';
+const products = str.split(',');
 console.log(products);
 
 // join - из массива в строку
@@ -51,15 +51,16 @@ console.log(products.join('; '));
 // сортирует все как строки (не работает для чисел,
 // сортирует их по первому символу)
 
-console.log(products.sort());
+const products2 = ['окно', 'дверь', 'комната'];
+console.log(products2.sort());
 
 // сортировка чисел в массивах с помощью sort
 
 const arrNum = [2, 13, 26, 8, 10];
 
-arrNum.sort(compareNum);
-console.log(arrNum);
-
 function compareNum(a, b) {
     return a - b;
 }
+
+arrNum.sort(compareNum);
+console.log(arrNum);
