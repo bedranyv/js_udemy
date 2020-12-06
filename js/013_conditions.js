@@ -14,9 +14,11 @@ if (num < 49) {
     console.log('ok');
 }
 
-/* Тернарный оператор: равно ли num = 50? да - ок, нет - error*/
-const num2 = 50;
-(num2 === 50) ? console.log('ok') : console.log('error');
+/* Тернарный оператор: равно ли num = 50? да - присваивается yes, нет - no*/
+let num2 = 50;
+let check = (num2 === 50) ? 'yes' : 'no';
+
+console.log(check);
 
 /* SWITCH, работает только на строгое сравнение */
 const num3 = 50;

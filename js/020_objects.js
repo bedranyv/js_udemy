@@ -13,8 +13,8 @@ const options = {
 console.log(options.name);
 
 // обращение к объекту внутри объекта
-console.log(options['colors']['border']);
-console.log(options.colors.border);
+// console.log(options['colors']['border']); // Вариант 1
+console.log(options.colors.border); // Вариант 2
 
 // удаление свойств из объекта
 delete options.name;

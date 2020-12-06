@@ -22,18 +22,14 @@ const personalMovieDB = {
     genres: [],
     privat: true,
     start: function() {
-        personalMovieDB.count = 
-            +prompt('Сколько фильмов вы уже посмотрели?', '');
+        personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
     
         // пока пользователь вводит пустую строку (''),
         // или нажимает кнопку отмена (null),
         // или вводит не число (isNAN)
         while 
-            (personalMovieDB.count == '' || 
-             personalMovieDB.count == null || 
-             isNaN(personalMovieDB.count)) {
-                personalMovieDB.count = 
-                    +prompt('Сколько фильмов вы уже посмотрели?', '');
+            (personalMovieDB.count == '' || personalMovieDB.count == null ||  isNaN(personalMovieDB.count)) {
+                personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
             }
         
         return(personalMovieDB.count);
