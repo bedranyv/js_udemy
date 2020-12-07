@@ -9,8 +9,6 @@ const wrapper = document.querySelector('.wrapper');
 const hearts = wrapper.querySelectorAll('.heart'); // выбор элементов внутри элемента wrapper, а не по всему документу
 const oneHeart = wrapper.querySelector('.heart'); // выбор элементов внутри элемента wrapper, а не по всему документу
 
-
-
 // Изменение inline стилей
 box.style.backgroundColor = 'blue';
 box.style.width = '500px';
@@ -65,12 +63,12 @@ hearts[0].replaceWith(circles[0]);
 // Устаревшая конструкция:
 // wrapper.replaceChild(circles[0], hearts[0]);
 
-// Формирование структуры сайта:
+// innerHTML - добавление разметки и содержимого элемента:
 div.innerHTML = '<h1>Заголовок</h1>';
 div.innerHTML = 'Hello World'; // обычный текст
 div.textContent = 'Hello World2'; // второй вариант, но добавляет только текст, без структуры (h1 например)
 
-// Вставка куска HTML кода 
+// insertAdjacentHTML - вставка куска HTML кода 
 
 div.insertAdjacentHTML('beforebegin', '<h2>Hello!</h2>');
 // beforebegin - вставка кода перед HTML элементом (перед div)
