@@ -30,7 +30,6 @@ btn.addEventListener('click', (e) => {
 const deleteElement = (e) => {
     e.target.remove(); 
 };
-
 btn.addEventListener('click', deleteElement);
 
 // Удаление обработчика нажатия после первого клика
@@ -57,4 +56,3 @@ link.addEventListener('click', (event) => {
     event.preventDefault(); // метод удаления стандартного поведения браузера
     console.log(event.target); // при клике на ссылку перехода не происходит, а выводит сообщение в консоль
 });
-

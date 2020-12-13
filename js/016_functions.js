@@ -53,3 +53,46 @@ logger();
 /* Стрелочная функция */
 
 const calc2 = (a, b) => a + b;
+
+/* Более короткая форма для:
+
+let calc2 = function(a, b) {
+  return a + b;
+};
+*/
+
+// Стрелочная функция. Пример №2
+function ask(question, yes, no) {
+    if (confirm(question)) {
+        yes();
+    } else {
+        no();
+    }
+  }
+  
+ask(
+    'Вы согласны?',
+    () => { alert('Вы согласились.'); },
+    () => { alert('Вы отменили выполнение.'); }
+);
+
+
+
+
+// Function Declaration //
+
+sayHi('Вася'); // Привет, Вася
+
+function sayHi(name) {
+  alert( `Привет, ${name}` );
+}
+
+
+// Function Expression//
+
+sayHi('Вася'); // ошибка!
+
+let sayHi2 = function(name) {  // (*) магии больше нет
+  alert( `Привет, ${name}` );
+};
+
