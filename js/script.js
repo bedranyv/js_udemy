@@ -6,18 +6,18 @@
 
 let number = 5; // изменяемая переменная
 const leftBorderWidth = 1; // постоянная переменная, нельзя изменить потом
-var name2 = "Ivan"; // устаревший метод объявления переменных
+var name2 = 'Ivan'; // устаревший метод объявления переменных
 
 number = 10;
 console.log(number);
 
 let number2 = 4; // числовой тип данных
-const persone = "5"; // строчный тип данных
+const persone = '5'; // строчный тип данных
 const bool = true; // логический тип данных
 
 // Объект, внутри него (name, age..) - это свойство объекта
 const obj = {
-    name: "John",
+    name: 'John',
     age: 25,
     isMarried: false
 };
@@ -34,10 +34,10 @@ console.log(arr[1]);
 // alert('Hello!');
 
 // модальное окно с да или нет:
-const result = confirm("Are you here?");
+const result = confirm('Are you here?');
 
 // модальное окно с инпутом для ввода данных:
-const answer = prompt("Вам есть 18?", "18");
+const answer = prompt('Вам есть 18?', '18');
 
 // узнать тип данных
 console.log(typeof(answer));

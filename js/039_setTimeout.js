@@ -19,7 +19,7 @@ clearInterval(timerId3);
 // Повтор через определенный интервал
 const timerId4 = setInterval(function() {
     console.log('Timer #4');
-}, 500); // 2 секунды
+}, 2000); //
 // для остановки, используется та же функция clearInterval:
 clearInterval(timerId4);
 
@@ -27,7 +27,7 @@ clearInterval(timerId4);
 let timerId5;
 timerId5 = setTimeout(function() {
     console.log('Timer #5');
-}, 500); // 2 секунды
+}, 500);
 
 // Задача. При клике на кнопку запускается setInterval и после 4 раз останавливается:
 const btn = document.querySelector('.btn');
