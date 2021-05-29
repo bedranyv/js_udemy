@@ -48,22 +48,78 @@ Test.assertEquals(spy.wasCalledWith('bye'), true);
 
 
 function spyOn (func) {
-    this.name = func;
-    this.callcount = 0;
+    this.callcounter = 0;
     this.callArr = [];
     this.returnArr = [];
 
-    this.func = function(n1,n2) {
-        this.callcount++;
+    this.callCount = function() {
+        return this.callcounter;
+    };
+
+    this.wasCalledWith = function(input) {
+        for (let i = 0; i < this.callArr.length; i++) {
+            if (this.callArr[i] == input) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    this.returned = function(input) {
+        for (let i = 0; i < this.returnArr.length; i++) {
+            if (this.returnArr[i] == input) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    this.counter = function (n1, n2) {
+        this.callcounter++;
         this.callArr.push(n1);
         this.callArr.push(n2);
         this.returnArr.push(n1 + n2);
-        return n1 + n2;
     };
 }
 
-new spyOn('adder');
-adder(2,4);
+// let adder = new spyOn('adder');
+// adder.add(2,4);
+// adder.add(1,5);
+
+// console.log(adder.callcounter);
+// console.log(adder.callArr);
+
+// console.log(adder.callCount());
+
+// console.log(adder.wasCalledWith(3));
+// console.log(adder.returned(6));
 
 
 
+
+
+function adder(n1, n2) { 
+    adderSpy.counter(n1, n2);
+    return n1 + n2; 
+}
+
+var adderSpy = spyOn(adder);
+
+console.log(adderSpy(2, 4)); // returns 6
+console.log(adderSpy(3, 5));
+
+
+function discountPrices (prices, discount) {
+    let discounted = [];
+  for (var i = 0; i < prices.length; i++) {
+      let discountedPrice = prices[i] * (1 - discount);
+      let finalPrice = Math.round(discountedPrice * 100);
+      discounted.push(finalPrice);
+    }
+  console.log(i);
+    console.log(discountedPrice); 
+    console.log(finalPrice);
+  return discounted;
+  }
+
+  discountPrices([100, 200, 300], 0.5);

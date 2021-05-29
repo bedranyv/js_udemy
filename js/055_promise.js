@@ -2,7 +2,8 @@
 
 console.log('Запрос данных...');
 
-const req = new Promise(function(resolve, reject) {
+const req = new Promise(function(resolve, reject) { 
+    // resolve - запустится при успешном выполнении, reject - запустится при ошибке
     setTimeout(() => {
         console.log('Подготовка данных...');
     
@@ -34,8 +35,8 @@ req.then((product) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             product.status = 'order';
-            // resolve(product);
-            reject(); // -> catch -> Произошла ошибка
+            resolve(product);
+            // reject(); // -> catch -> Произошла ошибка
         }, 2000);
     });
 }).then(data => {
@@ -46,16 +47,25 @@ req.then((product) => {
     console.log('finally');
 });
 
-const test = time => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve(), time);
+// const test = time => {
+//     return new Promise(resolve => {  // если reject не нужен, можно задавать один аргумент
+//         setTimeout(() => resolve(), time);
+//     });
+// };
+
+const test = function(time) {
+    return new Promise(function(resolve) {  // если reject не нужен, можно задавать один аргумент
+        setTimeout(function() {
+            resolve();
+        }, time);
     });
 };
 
-// test(1000).then(() => console.log('1000 ms'));
-// test(2000).then(() => console.log('2000 ms'));
+test(1000).then(() => console.log('1000 ms'));
+test(2000).then(() => console.log('2000 ms'));
 
 // Promise.all ждет выполнения всех Promise и только потом выполняется
+// принимает в себя массив промисов (([test(1000), test(2000)]))
 Promise.all([test(1000), test(2000)]).then(() => {
     console.log('All');
 });

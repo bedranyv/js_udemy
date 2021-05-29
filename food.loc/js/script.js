@@ -173,10 +173,10 @@ window.addEventListener('DOMContentLoaded', () => {
             this.price = price;
             this.classes = classes;
             this.transfer = 28;
-            this.changetoUAH();
+            this.changeToUAH();
         }
 
-        changetoUAH() {
+        changeToUAH() {
             this.price = this.price * this.transfer;
         }
 
@@ -327,7 +327,8 @@ window.addEventListener('DOMContentLoaded', () => {
     */
 
     // Вариант с JSON передачей данных
-    // /*
+    // Для использования раскомментировать вторую строчку в server.php 
+    /*
     function postData(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -345,7 +346,7 @@ window.addEventListener('DOMContentLoaded', () => {
             request.open('POST', 'server.php');
 
             request.setRequestHeader('Content-type', 'application/json');
-            const formData = new FormData(form);
+            const formData = new FormData(form);  // сбор данных из формы
 
             const object = {};
             formData.forEach(function(value, key) {
@@ -368,6 +369,59 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+       */
+
+    // FETCH API
+    function postData(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const statusMessage = document.createElement('img');
+            statusMessage.src = message.loading;
+            statusMessage.style.cssText = `
+                display: block;
+                margin: 0 auto;
+            `;
+            // form.append(statusMessage); или так:
+            form.insertAdjacentElement('afterend', statusMessage);
+
+            const formData = new FormData(form); // сбор данных из формы
+
+            const object = {};
+            formData.forEach(function(value, key) {
+                object[key] = value;
+            });
+
+            fetch('server.php', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(object)
+            })
+            .then(data => data.text())
+            .then(data => {
+                console.log(data);
+                showThanksModal(message.success);
+                
+                statusMessage.remove();
+            }).catch(() => {
+                showThanksModal(message.failure);
+            }).finally(() => {
+                form.reset();
+            });
+        });
+    }
     // */
 });
 
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({name: 'Alex'}),
+    headers: {
+        'Content-type': 'application/json'
+    }
+})
+  .then(response => response.json())
+  .then(json => console.log(json));

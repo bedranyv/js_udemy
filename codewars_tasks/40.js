@@ -55,8 +55,7 @@ function toNato(words) {
     let answer = '';
     for (let i = 0; i < words.length; i++) {
         if (words[i] == ' ' || words[i] == '.' || words[i] == '!' || words[i] == '?') {
-            if (words[i] == ' ') {}
-            else {
+            if (!(words[i] == ' ')) {
                 answer+=words[i]+ ' ';
             }
         } else {

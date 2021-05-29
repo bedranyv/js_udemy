@@ -117,3 +117,4 @@ const obj2 = {
 obj2.sayNumber(); // -> {num: 5, sayNumber: f}
 
 
+
